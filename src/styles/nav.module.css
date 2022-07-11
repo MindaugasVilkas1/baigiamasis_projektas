@@ -8,9 +8,12 @@
     padding-top: 10px;
 }
 .navigation img{
-    width: 100px;
+    width: 120px;
     height: 80px;
     box-shadow: 10px 10px 5px rgb(169, 161, 161);
+}
+.navigation img::before{
+    background-color: grey;
 }
 .navigation a{
     color: white;

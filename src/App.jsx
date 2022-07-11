@@ -5,6 +5,7 @@ import Register from './pages/register';
 import Home from './pages/home';
 import Ask from './pages/ask';
 import Nav from './components/nav';
+import Footer from './components/footer';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
 
         />} />
       </Routes>
+      <Footer/>
     </div>
   );
 }
