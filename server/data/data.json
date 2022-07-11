@@ -1,28 +1,32 @@
 {
-    "user": [
-      {
-        "id": 1,
-        "user_name": "MinVil",
-        "email": "mindaugasvilkas3@yahoo.com",
-        "password":"Abcd1234"
-      }
-    ],
-    "question": [
-      {
-        "id": 1,
-        "user_id": 1,
-        "title": "lempute",
-        "description": "Kaip pakeisti perdegusia lempute"
-      }
-      
-    ],
-    "answer": [
-      {
-        "id": 1,
-        "user_id":1,
-        "question_id":1,
-        "answer": "Ne, nu tu ir durnas"
-      }
-      
-    ]
-  }
+  "user": [
+    {
+      "user_name": "martvilk",
+      "email": "martynasvilkas8@gmail.com",
+      "password": "$2b$10$mN1SXjladaNyo1M4yT/UV.TZWC9dt6vnJvdm1jq/uiXOn0vOcMwEy",
+      "id": 1
+    },
+    {
+      "user_name": "minvil",
+      "email": "mindaugas@gmail.com",
+      "password": "$2b$10$h6yVtns6AipwyLXr0rVMTOqyuRm6VzHg5tdUuzE43M0KSI1u7ZIAi",
+      "id": 2
+    }
+  ],
+  "question": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "title": "lempute",
+      "description": "Kaip pakeisti perdegusia lempute"
+    }
+  ],
+  "answer": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "question_id": 1,
+      "answer": "Ne, nu tu ir durnas"
+    }
+  ]
+}
