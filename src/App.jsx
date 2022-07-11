@@ -1,10 +1,30 @@
 import './App.css';
+import { Routes, Route } from "react-router-dom";
+import Login from './pages/login';
+import Register from './pages/register';
+import Home from './pages/home';
+import Ask from './pages/ask';
+import Nav from './components/nav';
 
 function App() {
   return (
+
     <div className="App">
-     <h1>forum home page
-     </h1>
+      <Nav />
+      <Routes>
+        <Route path="/" element={
+          <Home />}
+        />
+        <Route path="/login" element={
+          <Login />}
+        />
+        <Route path="/register" element={
+          <Register />}
+        />
+        <Route path="/ask" element={<Ask
+
+        />} />
+      </Routes>
     </div>
   );
 }

@@ -1,0 +1,23 @@
+.navigation{
+    width: 90%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding-top: 10px;
+}
+.navigation img{
+    width: 100px;
+    height: 80px;
+    box-shadow: 10px 10px 5px rgb(169, 161, 161);
+}
+.navigation a{
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 1.5rem;
+}
+.navigation a:hover{
+    text-decoration: underline;
+}
