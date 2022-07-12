@@ -4,3 +4,9 @@
     color: black;
     text-align: center;
 }
+.title{
+    padding-top: 250px;
+    padding-bottom: 250px;
+    text-align: center;
+    font-size: 1.2rem;
+}

@@ -1,10 +1,12 @@
-import styles from '../styles/Button.module.css'
-const Button = ({title}) => {
-    return ( 
-        <button className={styles.button}>
+const Button = ({ title, logout, styles }) => {
+    return (
+        <button
+            onClick={logout ? logout : null}
+            className={styles}>
             {title}
+
         </button>
-     );
+    );
 }
- 
+
 export default Button;

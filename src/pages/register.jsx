@@ -57,10 +57,12 @@ const Register = () => {
                    {!isPending &&
                         <Button
                             title="Register"
+                            styles={style.button}
                         />}
                     {isPending &&
                         <Button
                             disabled
+                            styles={style.button}
                             title="Registering..."
                         />}
                 </form>

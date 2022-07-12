@@ -7,3 +7,12 @@ text-align:center;
     margin-top: 180px;
 
 }
+.button{
+    width: 90px;
+    padding: 10px;
+    size: 1rem;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-left: 5px;
+   align-items: center;
+}

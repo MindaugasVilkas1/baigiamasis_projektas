@@ -53,11 +53,13 @@ const Login = () => {
                    {!isPending &&
                         <Button
                             title="Login"
+                            styles={style.button}
                         />}
                     {isPending &&
                         <Button
                             disabled
                             title="Logiing..."
+                            styles={style.button}
                         />}
                 </form>
             </div>

@@ -6,12 +6,22 @@ import Home from './pages/home';
 import Ask from './pages/ask';
 import Nav from './components/nav';
 import Footer from './components/footer';
+import { useNavigate } from 'react-router-dom'
 
 function App() {
+  const navigate = useNavigate();
+  const token = localStorage.getItem('Token');
+  const logout = () => {
+    localStorage.removeItem('Token');
+    navigate('/login');
+  }
   return (
 
     <div className="App">
-      <Nav />
+      <Nav
+        token={token}
+        logout={logout}
+      />
       <Routes>
         <Route path="/" element={
           <Home />}
@@ -26,7 +36,7 @@ function App() {
 
         />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
