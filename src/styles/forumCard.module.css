@@ -1,0 +1,30 @@
+.forumCard{
+    width: 70%;
+    height: auto;
+    border:2px solid black;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+.title{
+    border-bottom: 2px solid grey;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border-bottom: 2px solid grey;
+    width: 90%;
+    margin: 0 auto;
+    background-color: rgba(250, 250, 250, 0.37);
+    margin-bottom: 10px;
+    
+}
+.content p{
+    margin-left: 10px;
+}

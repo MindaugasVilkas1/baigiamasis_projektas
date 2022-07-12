@@ -19,6 +19,12 @@
       "user_id": 1,
       "title": "lempute",
       "description": "Kaip pakeisti perdegusia lempute"
+    },
+    {
+      "id": 2,
+      "user_id": 1,
+      "title": "Santechnika",
+      "description": "Kaip pakeisti vandens ciaupa"
     }
   ],
   "answer": [
@@ -27,6 +33,12 @@
       "user_id": 1,
       "question_id": 1,
       "answer": "Ne, nu tu ir durnas"
+    },
+    {
+      "id": 2,
+      "user_id": 2,
+      "question_id": 1,
+      "answer": "Issuki ir issuki, kas tau neaisku"
     }
   ]
 }

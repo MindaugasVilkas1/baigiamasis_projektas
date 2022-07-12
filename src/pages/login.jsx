@@ -3,7 +3,6 @@ import Button from '../components/button'
 import styles from '../styles/form.module.css'
 import style from '../styles/registration.module.css'
 import { useNavigate } from 'react-router-dom'
-import Nav from '../components/nav'
 const Login = () => {
    const [isPending, setIsPending] = useState(false)
     let navigate = useNavigate();
@@ -31,9 +30,6 @@ const Login = () => {
     }
     return ( 
         <>
-        <Nav
-        
-        />
         <div className={style.registration}>
                 <div className={style.registerTitle}>
                     <h1>Login</h1>
