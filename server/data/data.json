@@ -45,6 +45,12 @@
       "user_id": 2,
       "question_id": 1,
       "answer": "Issuki ir issuki, kas tau neaisku"
+    },
+    {
+      "id": 3,
+      "user_id": 3,
+      "question_id": 2,
+      "answer": "Manau be santechniko net neverta imtis tokiu darbu"
     }
   ]
 }

@@ -6,6 +6,7 @@ import login from './routes/login.js'
 import question from './routes/questions.js'
 import answers from "./routes/answers.js"
 import verify from "./routes/verify.js"
+import user from "./routes/user.js"
 
 //
 const app = express()
@@ -16,6 +17,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 // routai
+app.use('/user', user)
 app.use('/login', login)
 app.use("/verify", verify)
 app.use("/answers", answers)

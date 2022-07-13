@@ -27,4 +27,9 @@
 }
 .content p{
     margin-left: 10px;
+    font-size: 1rem;
+    font-weight:bolder;
+}
+.content span{
+    color:rgb(29, 3, 88);
 }

@@ -16,6 +16,7 @@ function App() {
   const [answer, setAnswer] = useState([])
   const [loggedIn, setLoggedIn] = useState(false)
   const [user, setUser] = useState({})
+  const [allUsers, setAllUsers] =useState([])
   console.log(loggedIn)
   useEffect(() => {
     // get all questions
@@ -26,6 +27,10 @@ function App() {
     fetch('http://localhost:5000/answers')
       .then(res => res.json())
       .then(data => setAnswer(data));
+    // get users
+    fetch('http://localhost:5000/user')
+    .then(res => res.json())
+    .then(data => setAllUsers(data));
     // get token
     const token = localStorage.getItem("Token")
     if (token) setLoggedIn(true)
@@ -52,6 +57,7 @@ function App() {
             answer={answer}
             setUser={setUser}
             setLoggedIn={setLoggedIn}
+            allUsers={allUsers}
           />}
         />
         <Route path="/login" element={

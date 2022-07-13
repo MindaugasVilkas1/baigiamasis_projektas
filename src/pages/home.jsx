@@ -2,7 +2,7 @@ import styles from '../styles/homepage.module.css'
 import { useEffect, useState } from 'react';
 import ForumCard from '../components/forumCard';
 
-const Home = ({ setLoggedIn, setUser, questions, answer }) => {
+const Home = ({ setLoggedIn, setUser, questions, answer, allUsers }) => {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
     useEffect(() => {
@@ -41,6 +41,7 @@ const Home = ({ setLoggedIn, setUser, questions, answer }) => {
                         key={item.id}
                         question={item}
                         answer={answer}
+                        allUsers={allUsers}
                     />
 
                 ))}
