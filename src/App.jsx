@@ -70,7 +70,7 @@ function App() {
           <Register />}
         />
         <Route path="/ask" element={<Ask
-
+        loggedIn={loggedIn}
         />} />
       </Routes>
       <Footer />
