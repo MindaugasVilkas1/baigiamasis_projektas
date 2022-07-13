@@ -1,7 +1,7 @@
 import styles from "../styles/forumCard.module.css"
 import style from '../styles/registration.module.css'
 import Button from "./button";
-const ForumCard = ({ question, answer }) => {
+const ForumCard = ({ question, answer}) => {
 
     return (
         <div className={styles.forumCard}>
@@ -15,9 +15,9 @@ const ForumCard = ({ question, answer }) => {
             </div>
             </div>
             {
-                answer.filter((item, i) => item.question_id === question.id).map((element, i) =>
+                answer.filter((item) => item.question_id === question.id).map((element, i) =>
                     <div key={i} className={styles.content}>
-                        <p key={i}>{element.answer}</p>
+                        <p>{element.answer}</p>
                     </div>
                 )
             }

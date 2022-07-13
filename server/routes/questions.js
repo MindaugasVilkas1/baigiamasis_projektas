@@ -13,9 +13,9 @@ router.get("/:id?", async (req, res) => {
   router.post("/", async (req, res) => {
     try {
         const response = await axios.post('http://localhost:8080/question', {
-            user_id: req.params.id,
+            user_id: req.params.user_id,
             title: req.body.email,
-            description: hashedPass
+            description:req.body.description
         })
         res.send(response.data)
     } catch (err) {

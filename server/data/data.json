@@ -11,6 +11,12 @@
       "email": "mindaugas@gmail.com",
       "password": "$2b$10$h6yVtns6AipwyLXr0rVMTOqyuRm6VzHg5tdUuzE43M0KSI1u7ZIAi",
       "id": 2
+    },
+    {
+      "user_name": "julia",
+      "email": "juliares@gmail.com",
+      "password": "$2b$10$5SxRUpkQdEjnR2qO.f1SeeGmaheQj32A.bsM.l/FHpiTG4XEpz9SC",
+      "id": 3
     }
   ],
   "question": [

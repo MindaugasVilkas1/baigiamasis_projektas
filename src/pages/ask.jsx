@@ -2,28 +2,9 @@ import { useState } from "react";
 import Button from '../components/button'
 import styles from '../styles/form.module.css'
 import style from '../styles/registration.module.css'
-import { useEffect } from "react";
-import { useNavigate } from 'react-router-dom'
 const Register = () => {
     const [isPending, setIsPending] = useState(false)
-    const navigate = useNavigate()
     //verify pages
-    useEffect(() => {
-        const token = localStorage.getItem('Token');
-        fetch('http://localhost:5000/verify', {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        })
-            .then(res => res.json())
-            .then(res => {
-                if (res.err) {
-                    localStorage.removeItem('Token');
-                    return navigate('/');
-                }
-            }
-            )
-    },[navigate])
     return ( 
         <>
         <div className={style.registration}>

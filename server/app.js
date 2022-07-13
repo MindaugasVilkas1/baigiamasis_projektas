@@ -16,9 +16,9 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 // routai
+app.use('/login', login)
 app.use("/verify", verify)
 app.use("/answers", answers)
 app.use("/questions", question)
-app.use('/login', login)
 app.use('/register', register)
 app.listen(PORT, () => console.log(`Server is running on Port on ${PORT}`))
