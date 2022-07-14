@@ -31,6 +31,12 @@
       "user_id": 1,
       "title": "Santechnika",
       "description": "Kaip pakeisti vandens ciaupa"
+    },
+    {
+      "user_id": 1,
+      "title": "Automobiliai",
+      "description": "Gal kas Gali paruosti auto techui?",
+      "id": 3
     }
   ],
   "answer": [
