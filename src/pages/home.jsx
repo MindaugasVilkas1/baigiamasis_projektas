@@ -3,11 +3,10 @@ import { useEffect, useState } from 'react';
 import ForumCard from '../components/forumCard';
 
 const Home = ({ setLoggedIn, setUser, questions, answer, allUsers }) => {
-    const [loading, setLoading] = useState(false)
+
     const [error, setError] = useState(null)
     useEffect(() => {
         // fetch verify
-        setLoading(true)
         fetch('http://localhost:5000/verify', {
             headers: {
                 "Content-Type":"application/json",
@@ -20,7 +19,6 @@ const Home = ({ setLoggedIn, setUser, questions, answer, allUsers }) => {
                     setLoggedIn(false)
                 } else {
                     setLoggedIn(true)
-                    setLoading(false)
                     setUser({ user_name: data.user_name, id: data.id, email: data.email })
                 }
                 
@@ -34,7 +32,6 @@ const Home = ({ setLoggedIn, setUser, questions, answer, allUsers }) => {
         <>
             <div className={styles.homepage}>
             {error && <div>{error}</div>}
-            {loading && <div><h1>Loading...</h1></div>}
                 {questions &&
                 questions.map(item => (
                     <ForumCard

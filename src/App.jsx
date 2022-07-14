@@ -20,27 +20,37 @@ function App() {
   console.log(loggedIn)
   useEffect(() => {
     // get all questions
-    fetch('http://localhost:5000/questions')
-      .then(res => res.json())
-      .then(data => setQuestion(data));
+   questionGet()
     // get all answers
-    fetch('http://localhost:5000/answers')
-      .then(res => res.json())
-      .then(data => setAnswer(data));
+    answerGet()
     // get users
-    fetch('http://localhost:5000/user')
-    .then(res => res.json())
-    .then(data => setAllUsers(data));
+    userGet()
     // get token
     const token = localStorage.getItem("Token")
     if (token) setLoggedIn(true)
   }, [])
-
+// get questions 
+const questionGet =()=>{
+  fetch('http://localhost:5000/questions')
+  .then(res => res.json())
+  .then(data => setQuestion(data));
+}
+// get answers
+const answerGet = ()=>{
+  fetch('http://localhost:5000/answers')
+      .then(res => res.json())
+      .then(data => setAnswer(data));
+}
+//getUsers
+const userGet = ()=>{
+  fetch('http://localhost:5000/user')
+    .then(res => res.json())
+    .then(data => setAllUsers(data));
+}
   //logout
   const logout = () => {
-    localStorage.removeItem('Token');
+    localStorage.removeItem('token');
     setLoggedIn(false)
-    navigate('/login');
 
   }
   return (
@@ -58,6 +68,7 @@ function App() {
             setUser={setUser}
             setLoggedIn={setLoggedIn}
             allUsers={allUsers}
+            loggedIn={loggedIn}
           />}
         />
         <Route path="/login" element={
@@ -71,6 +82,9 @@ function App() {
         />
         <Route path="/ask" element={<Ask
         loggedIn={loggedIn}
+        user={user}
+        questions={questions}
+        questionGet={questionGet}
         />} />
       </Routes>
       <Footer />
