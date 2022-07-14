@@ -2,11 +2,11 @@ import styles from '../styles/homepage.module.css'
 import { useEffect, useState } from 'react';
 import ForumCard from '../components/forumCard';
 
-const Home = ({ setLoggedIn, setUser, questions, answer, allUsers }) => {
-
+const Home = ({ setLoggedIn, answerGet, setUser,loggedIn, questions, answer, allUsers, user }) => {
+// error
     const [error, setError] = useState(null)
+// fetch verify
     useEffect(() => {
-        // fetch verify
         fetch('http://localhost:5000/verify', {
             headers: {
                 "Content-Type":"application/json",
@@ -26,7 +26,6 @@ const Home = ({ setLoggedIn, setUser, questions, answer, allUsers }) => {
             .catch((err) => {
                 setError(err.message)
             })
-
     }, [])
     return (
         <>
@@ -39,8 +38,10 @@ const Home = ({ setLoggedIn, setUser, questions, answer, allUsers }) => {
                         question={item}
                         answer={answer}
                         allUsers={allUsers}
+                        loggedIn={loggedIn}
+                        user={user}
+                        answerGet={answerGet}
                     />
-
                 ))}
             </div>
         </>

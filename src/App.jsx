@@ -1,6 +1,5 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
-import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 // componentai
 import Login from './pages/login';
@@ -11,7 +10,6 @@ import Nav from './components/nav';
 import Footer from './components/footer';
 
 function App() {
-  const navigate = useNavigate();
   const [questions, setQuestion] = useState([])
   const [answer, setAnswer] = useState([])
   const [loggedIn, setLoggedIn] = useState(false)
@@ -51,7 +49,6 @@ const userGet = ()=>{
   const logout = () => {
     localStorage.removeItem('token');
     setLoggedIn(false)
-
   }
   return (
     <div className="App">
@@ -69,6 +66,8 @@ const userGet = ()=>{
             setLoggedIn={setLoggedIn}
             allUsers={allUsers}
             loggedIn={loggedIn}
+            user={user}
+            answerGet={answerGet}
           />}
         />
         <Route path="/login" element={

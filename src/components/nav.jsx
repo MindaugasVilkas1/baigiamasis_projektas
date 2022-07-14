@@ -23,7 +23,6 @@ const Nav = ({ loggedIn, user, logout }) => {
                          <h3>Sveiki prisijungę: {user.user_name}</h3>
                      </div>
                  </div>
-                    
                 ) :
                 <div>
                 <Link to={'/register'}>Register</Link>

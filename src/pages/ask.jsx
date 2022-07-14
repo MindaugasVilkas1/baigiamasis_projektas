@@ -7,6 +7,7 @@ import st from '../styles/ask.module.css'
 const Register = ({ loggedIn, user, questionGet}) => {
     const [isPending, setIsPending] = useState(false)
     let navigate = useNavigate();
+// post questions
     const handleSubmit = (e) => {
         e.preventDefault()
         const question = {
@@ -26,9 +27,7 @@ const Register = ({ loggedIn, user, questionGet}) => {
                 questionGet()
                 navigate('/')
             })
-            
     }
-    //verify pages
     return (
         <>
             {loggedIn ? (

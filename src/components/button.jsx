@@ -1,10 +1,10 @@
-const Button = ({ title, logout, styles }) => {
+const Button = ({ title, logout, styles, handleClick}) => {
     return (
         <button
-            onClick={logout ? logout : null}
-            className={styles}>
-            {title}
-
+        onClick={logout ? logout : null|| handleClick}
+        className={styles}
+        >
+        {title} 
         </button>
     );
 }

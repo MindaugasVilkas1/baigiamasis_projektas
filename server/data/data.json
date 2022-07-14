@@ -57,6 +57,42 @@
       "user_id": 3,
       "question_id": 2,
       "answer": "Manau be santechniko net neverta imtis tokiu darbu"
+    },
+    {
+      "user_id": 1,
+      "question_id": 3,
+      "answer": "Galiu",
+      "id": 4
+    },
+    {
+      "user_id": 2,
+      "question_id": 2,
+      "answer": "Juoku darbas",
+      "id": 5
+    },
+    {
+      "user_id": 2,
+      "question_id": 3,
+      "answer": "Pirma pabandyk pravaryt tada paziuresim kas blogai ir galesiu paziuret",
+      "id": 6
+    },
+    {
+      "user_id": 2,
+      "question_id": 2,
+      "answer": "bet irankis reikia tureti",
+      "id": 7
+    },
+    {
+      "user_id": 2,
+      "question_id": 1,
+      "answer": "Turiu",
+      "id": 8
+    },
+    {
+      "user_id": 2,
+      "question_id": 3,
+      "answer": "jeee",
+      "id": 9
     }
   ]
 }
