@@ -1,0 +1,17 @@
+.notfound{
+    margin-top: 250px;
+    margin-bottom: 250px;
+    text-align: center;
+}
+.notfound h2, p{
+    font-size: 1.5rem;
+}
+.notfound a{
+    text-decoration: none;
+    color: black;
+    font-size: larger;
+
+}
+.notfound a:hover{
+    text-decoration: underline;
+}

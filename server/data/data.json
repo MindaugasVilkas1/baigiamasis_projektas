@@ -21,78 +21,48 @@
   ],
   "question": [
     {
-      "id": 1,
-      "user_id": 1,
-      "title": "lempute",
-      "description": "Kaip pakeisti perdegusia lempute"
-    },
-    {
-      "id": 2,
-      "user_id": 1,
-      "title": "Santechnika",
-      "description": "Kaip pakeisti vandens ciaupa"
-    },
-    {
       "user_id": 1,
       "title": "Automobiliai",
-      "description": "Gal kas Gali paruosti auto techui?",
+      "description": "Gal kas turi pazystamu regitroje? reikia tech pravaryti?",
+      "id": 1
+    },
+    {
+      "user_id": 2,
+      "title": "Santechnika",
+      "description": "Kaip pakeisti krana?\n",
+      "id": 2
+    },
+    {
+      "user_id": 1,
+      "title": "Drabuziai",
+      "description": "Parduodu vaikiskus drabuzius. nauji",
       "id": 3
     }
   ],
   "answer": [
     {
-      "id": 1,
-      "user_id": 1,
-      "question_id": 1,
-      "answer": "Ne, nu tu ir durnas"
-    },
-    {
-      "id": 2,
-      "user_id": 2,
-      "question_id": 1,
-      "answer": "Issuki ir issuki, kas tau neaisku"
-    },
-    {
-      "id": 3,
-      "user_id": 3,
-      "question_id": 2,
-      "answer": "Manau be santechniko net neverta imtis tokiu darbu"
-    },
-    {
-      "user_id": 1,
-      "question_id": 3,
-      "answer": "Galiu",
-      "id": 4
-    },
-    {
-      "user_id": 2,
-      "question_id": 2,
-      "answer": "Juoku darbas",
-      "id": 5
-    },
-    {
-      "user_id": 2,
-      "question_id": 3,
-      "answer": "Pirma pabandyk pravaryt tada paziuresim kas blogai ir galesiu paziuret",
-      "id": 6
-    },
-    {
-      "user_id": 2,
-      "question_id": 2,
-      "answer": "bet irankis reikia tureti",
-      "id": 7
-    },
-    {
       "user_id": 2,
       "question_id": 1,
       "answer": "Turiu",
-      "id": 8
+      "id": 1
+    },
+    {
+      "user_id": 2,
+      "question_id": 1,
+      "answer": "Parasykite jei domina",
+      "id": 2
+    },
+    {
+      "user_id": 1,
+      "question_id": 2,
+      "answer": "Manau be irankiu nepakeisi taip paprastai",
+      "id": 3
     },
     {
       "user_id": 2,
       "question_id": 3,
-      "answer": "jeee",
-      "id": 9
+      "answer": "Domina",
+      "id": 4
     }
   ]
 }

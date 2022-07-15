@@ -24,5 +24,16 @@ router.get("/:id?", async (req, res) => {
 
     }
 });
+// app delete
+router.delete('/:id', async (req, res) => {
+    try {
+        const data = await fetch(`http://localhost:8080/question/${req.params.id}`, {
+            method: "DELETE"
+        })
+        res.send(data)
+    } catch (err) {
+        res.send({ err })
+    }
+})
 
 export default router
