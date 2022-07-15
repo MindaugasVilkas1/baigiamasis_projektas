@@ -1,7 +1,6 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from 'react';
-import { useParams } from "react-router-dom";
 
 // componentai
 import Login from './pages/login';
@@ -13,9 +12,7 @@ import Footer from './components/footer';
 import NotFound from './pages/notFound'
 
 function App() {
-  const { id } = useParams()
   const [questions, setQuestion] = useState([])
-  const [questionsByid, setQuestionById] = useState({})
   const [answer, setAnswer] = useState([])
   const [loggedIn, setLoggedIn] = useState(false)
   const [user, setUser] = useState({})
@@ -27,8 +24,6 @@ function App() {
     answerGet()
     // get users
     userGet()
-//get Question by id
-getQuestionId()
     // get token
     const token = localStorage.getItem("Token")
     if (token) setLoggedIn(true)
@@ -38,13 +33,6 @@ getQuestionId()
     fetch('http://localhost:5000/questions')
       .then(res => res.json())
       .then(data => setQuestion(data));
-  }
-  // get question by id
-  const getQuestionId = () => {
-    // get questions by id
-    fetch('http://localhost:5000/questions/' + id)
-      .then(res => res.json())
-      .then(data => setQuestionById(data));
   }
   // get answers
   const answerGet = () => {
