@@ -1,7 +1,7 @@
-const Button = ({ title, logout, styles, handleClick}) => {
+const Button = ({ title, styles, handleClick}) => {
     return (
         <button
-        onClick={logout ? logout : null|| handleClick}
+        onClick={handleClick}
         className={styles}
         >
         {title} 

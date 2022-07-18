@@ -19,7 +19,6 @@
 .title a{
     color: black;
 }
-
 .content {
     display: flex;
     justify-content: space-between;
@@ -50,14 +49,19 @@
     background-color: rgb(255, 255, 255, 0.8);
     width: 90%;
     display:block;
-    margin-left: 10px;
-    padding-bottom: 5px;
     padding-top: 10px;
+    padding-bottom: 10px;
     margin: 0 auto;
+    border: 2px solid black;
+    
 }
+
 .formDisplay input, button{
     margin: 0 auto;
     text-align: center;
+}
+.forms{
+    margin: 10px;
 }
 .span{
     font-weight: bolder;

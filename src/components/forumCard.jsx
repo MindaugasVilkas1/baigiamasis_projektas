@@ -7,12 +7,19 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 const ForumCard = ({ question, answer, allUsers, user, loggedIn, answerGet, questionGet }) => {
     const [isActive, setIsActive] = useState(false)
-    const [isPending, setIsPending] = useState(false)
+    const [active, setActive] = useState(false)
+    const [isPending, setIsPending] = useState(null)
     // funkcija pakeisti formos className
     const handleClick = () => {
         // 👇️ toggle isActive state on click
         setIsActive(current => !current);
     };
+    const handleClick1 = () => {
+        // 👇️ toggle isActive state on click
+        setActive(current => !current);
+    };
+
+
     // delete question
     const handleDelete = (questionId) => {
         fetch(`http://localhost:5000/questions/${questionId}`, {
@@ -25,14 +32,13 @@ const ForumCard = ({ question, answer, allUsers, user, loggedIn, answerGet, ques
                 questionGet()
             })
     }
+
     // delete answer
     const answerDelete = (answerId) => {
+
         fetch(`http://localhost:5000/answers/${answerId}`, {
             method: "DELETE"
         })
-            .then(() => {
-                console.log("answer deleted")
-            })
             .then(() => {
                 answerGet()
             })
@@ -60,6 +66,7 @@ const ForumCard = ({ question, answer, allUsers, user, loggedIn, answerGet, ques
             })
             .then(() => e.target.reset())
     }
+
     return (
         <div className={styles.forumCard}>
             <div className={styles.title}>
@@ -67,19 +74,21 @@ const ForumCard = ({ question, answer, allUsers, user, loggedIn, answerGet, ques
                 {loggedIn ? (
                     <div>
                         {user.id === question.user_id ? (
-                            <Button
-                                title={<DeleteIcon />}
-                                styles={style.button}
-                                id={question.id}
-                                handleClick={() => handleDelete(question.id)}
-                            />
+                            <div>
+                                <Button
+                                    title={<DeleteIcon />}
+                                    styles={style.button}
+                                    id={question.id}
+                                    handleClick={() => handleDelete(question.id)}
+                                />
+                                <Button
+                                    title={<ModeCommentIcon />}
+                                    styles={style.button}
+                                    handleClick={handleClick}
+                                />
+                            </div>
                         ) : null
                         }
-                        <Button
-                            title={<ModeCommentIcon />}
-                            styles={style.button}
-                            handleClick={handleClick}
-                        />
                     </div>
                 ) :
                     <div className={styles.span}>
@@ -116,7 +125,7 @@ const ForumCard = ({ question, answer, allUsers, user, loggedIn, answerGet, ques
                                         <Button
                                             title={<EditIcon />}
                                             styles={style.button}
-
+                                            handleClick={handleClick1}
                                         />
                                     </div>
                                 ) : null
@@ -132,23 +141,43 @@ const ForumCard = ({ question, answer, allUsers, user, loggedIn, answerGet, ques
 
                 )
             )}
-            <div>
-                <form
-                    onSubmit={handleSubmit}
-                    className={isActive ? `${styles.formDisplay}` : `${styles.form}`}>
-                    <input type="text" name='answer' placeholder="Comment" />
-                    {!isPending &&
-                        <Button
-                            title="Submit"
-                            styles={style.button}
-                        />}
-                    {isPending &&
-                        <Button
-                            disabled
-                            title="Loading..."
-                            styles={style.button}
-                        />}
-                </form>
+            <div >
+                <div className={styles.forms}>
+                    <form
+                        onSubmit={handleSubmit}
+                        className={isActive ? `${styles.formDisplay}` : `${styles.form}`}>
+                        <input type="text" name='answer' placeholder="Comment" />
+                        {!isPending &&
+                            <Button
+                                title="Submit"
+                                styles={style.button}
+                            />}
+                        {isPending &&
+                            <Button
+                                disabled
+                                title="Loading..."
+                                styles={style.button}
+                            />}
+                    </form>
+                </div>
+                <div className={styles.forms}>
+                    <form
+                        className={active ? `${styles.formDisplay}` : `${styles.form}`}>
+                        <input type="text" name='answer' placeholder="edit" />
+                        {!isPending &&
+                            <Button
+                                title="Edit"
+                                styles={style.button}
+                            />}
+                        {isPending &&
+                            <Button
+                                disabled
+                                title="Loading..."
+                                styles={style.button}
+
+                            />}
+                    </form>
+                </div>
             </div>
         </div>
     );

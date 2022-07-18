@@ -3,7 +3,7 @@ import img from '../images/logo1.gif'
 import styles from '../styles/nav.module.css'
 import Button from './button';
 
-const Nav = ({ loggedIn, user, logout }) => {
+const Nav = ({ loggedIn, user, handleClick }) => {
     return (
         <div className={styles.navigation}>
             <div>
@@ -17,7 +17,7 @@ const Nav = ({ loggedIn, user, logout }) => {
                      <Button
                          title="logout"
                          styles={styles.logout}
-                         logout={logout}
+                         handleClick={handleClick}
                      />
                      <div>
                          <h3>Sveiki prisijungę: {user.user_name}</h3>

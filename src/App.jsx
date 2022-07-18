@@ -17,6 +17,7 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false)
   const [user, setUser] = useState({})
   const [allUsers, setAllUsers] = useState([])
+  
   useEffect(() => {
     // get all questions
     questionGet()
@@ -32,13 +33,17 @@ function App() {
   const questionGet = () => {
     fetch('http://localhost:5000/questions')
       .then(res => res.json())
-      .then(data => setQuestion(data));
+      .then(data =>
+        setQuestion(data)
+      )
   }
   // get answers
   const answerGet = () => {
     fetch('http://localhost:5000/answers')
       .then(res => res.json())
-      .then(data => setAnswer(data));
+      .then(data => {
+        setAnswer(data)
+      })
   }
   //getUsers
   const userGet = () => {
@@ -55,7 +60,7 @@ function App() {
     <div className="App">
       <Nav
         user={user}
-        logout={logout}
+        handleClick={logout}
         loggedIn={loggedIn}
       />
       <Routes>

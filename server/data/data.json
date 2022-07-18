@@ -27,12 +27,6 @@
       "id": 1
     },
     {
-      "user_id": 2,
-      "title": "Santechnika",
-      "description": "Kaip pakeisti krana?\n",
-      "id": 2
-    },
-    {
       "user_id": 1,
       "title": "Drabuziai",
       "description": "Parduodu vaikiskus drabuzius. nauji",
@@ -41,18 +35,6 @@
   ],
   "answer": [
     {
-      "user_id": 2,
-      "question_id": 1,
-      "answer": "Turiu",
-      "id": 1
-    },
-    {
-      "user_id": 2,
-      "question_id": 1,
-      "answer": "Parasykite jei domina",
-      "id": 2
-    },
-    {
       "user_id": 1,
       "question_id": 2,
       "answer": "Manau be irankiu nepakeisi taip paprastai",
@@ -60,9 +42,33 @@
     },
     {
       "user_id": 2,
+      "question_id": 1,
+      "answer": "turiu",
+      "id": 13
+    },
+    {
+      "user_id": 2,
       "question_id": 3,
-      "answer": "Domina",
-      "id": 4
+      "answer": "Na tai gerai",
+      "id": 14
+    },
+    {
+      "user_id": 2,
+      "question_id": 3,
+      "answer": "mmmmm",
+      "id": 17
+    },
+    {
+      "user_id": 1,
+      "question_id": 3,
+      "answer": "grhfghg",
+      "id": 18
+    },
+    {
+      "user_id": 1,
+      "question_id": 1,
+      "answer": "neturiu",
+      "id": 19
     }
   ]
 }
