@@ -23,64 +23,66 @@
     {
       "user_id": 1,
       "title": "Automobiliai",
-      "description": "Gal kas turi pazystamu regitroje? reikia tech pravaryti?",
-      "id": 1
+      "description": "Gal kas turite pazystamu regitroje?",
+      "id": 1,
+      "updated": true
     },
     {
       "user_id": 1,
       "title": "Drabuziai",
-      "description": "Parduodu vaikiskus drabuzius. nauji",
-      "id": 3
+      "description": "Parduodu vaikiskus drabuzius",
+      "id": 2,
+      "updated": true
     }
   ],
   "answer": [
     {
-      "user_id": 1,
-      "question_id": 2,
-      "answer": "Manau be irankiu nepakeisi taip paprastai",
-      "id": 3
-    },
-    {
       "user_id": 2,
       "question_id": 1,
-      "answer": "turiu",
-      "id": 13
+      "answer": "Nebeturiu deja",
+      "id": 1,
+      "updated": true
     },
     {
       "user_id": 2,
       "question_id": 3,
       "answer": "geras",
-      "id": 14
+      "id": 2,
+      "updated": false
     },
     {
       "user_id": 2,
       "question_id": 3,
       "answer": "Rokemenduoju",
-      "id": 17
+      "id": 3,
+      "updated": false
     },
     {
       "user_id": 1,
       "question_id": 1,
-      "answer": "Nebeturiuisejo i kita darba",
-      "id": 19
+      "answer": "ok turiu",
+      "id": 4,
+      "updated": false
     },
     {
       "user_id": 1,
       "question_id": 1,
-      "answer": "Neturiu",
-      "id": 20
+      "answer": "pasidomesiu",
+      "id": 5,
+      "updated": true
+    },
+    {
+      "user_id": 3,
+      "question_id": 2,
+      "answer": "Labai faina",
+      "id": 6,
+      "updated": true
     },
     {
       "user_id": 1,
       "question_id": 1,
-      "answer": "Dar visgi uzklausiu",
-      "id": 21
-    },
-    {
-      "user_id": 1,
-      "question_id": 3,
-      "answer": "O visai domina",
-      "id": 22
+      "answer": "ne",
+      "id": 7
     }
   ]
 }

@@ -41,7 +41,7 @@ router.patch("/:id", async (req, res) => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body : JSON.stringify({answer:req.body.answer})
+      body : JSON.stringify(req.body)
     })
     res.json({success:true});
   });

@@ -5,12 +5,20 @@ import { useState } from "react";
 import ModeCommentIcon from '@mui/icons-material/ModeComment';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AnswerCard from "./answer";
-const ForumCard = ({ question, user, loggedIn, questionGet, answer, answerGet, allUsers}) => {
+import CircleIcon from '@mui/icons-material/Circle';
+import EditIcon from '@mui/icons-material/Edit';
+const ForumCard = ({ question, user, loggedIn, questionGet, answer, answerGet, allUsers }) => {
     const [isActive, setIsActive] = useState(false)
+    const [active, setActive] = useState(false)
     const [isPending, setIsPending] = useState(null)
+    const [update, setUpdate] = useState("")
     const handleClick = () => {
         // 👇️ toggle isActive state on click
         setIsActive(current => !current);
+    };
+    const handleClick1 = () => {
+        // 👇️ toggle isActive state on click
+        setActive(current => !current)
     };
     // delete question
     const handleDelete = (questionId) => {
@@ -24,8 +32,29 @@ const ForumCard = ({ question, user, loggedIn, questionGet, answer, answerGet, a
                 questionGet()
             })
     }
-     // post answer funkcija
-     const handleSubmit = (e) => {
+    // edit answer
+    const edit = (e, id) => {
+        e.preventDefault();
+        fetch(`http://localhost:5000/questions/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                description: update,
+                updated: true
+            }),
+        })
+            .then(() => {
+                questionGet()
+            })
+            .then(() => {
+                setActive(false)
+            })
+            .catch((err) => console.log(err))
+    }
+    // post answer kiekvienam klausimui
+    const handleSubmit = (e) => {
         e.preventDefault()
         const answer = {
             user_id: user.id,
@@ -45,28 +74,67 @@ const ForumCard = ({ question, user, loggedIn, questionGet, answer, answerGet, a
             .then(() => {
                 answerGet()
             })
-            .then(() => e.target.reset())
+            .then(() =>
+                e.target.reset())
+            .then(() =>
+                setIsActive(false))
     }
 
     return (
         <div className={styles.forumCard}>
             <div className={styles.title}>
                 <h3>{question.description}</h3>
+                <div className={styles.forms}>
+                    <form
+                        onSubmit={(e) => edit(e, question.id)}
+                        className={active ? `${styles.formDisplay}` : `${styles.form}`}>
+                        <textarea type="text" value={update} required onChange={(e) => setUpdate(e.target.value)} />
+                        {!isPending &&
+                            <Button
+                                title="Edit"
+                                styles={style.button}
+                            />}
+                        {isPending &&
+                            <Button
+                                disabled
+                                title="Loading..."
+                                styles={style.button}
+                            />}
+                    </form>
+                </div>
                 {loggedIn ? (
-                    <div>
+                    <div className={styles.icons} >
+                        <div>
+                            <Button
+                                title={<ModeCommentIcon />}
+                                styles={style.button}
+                                handleClick={handleClick}
+                            />
+                        </div>
                         {user.id === question.user_id ? (
-                            <div>
-                                <Button
-                                    title={<DeleteIcon />}
-                                    styles={style.button}
-                                    id={question.id}
-                                    handleClick={() => handleDelete(question.id)}
-                                />
-                                <Button
-                                    title={<ModeCommentIcon />}
-                                    styles={style.button}
-                                    handleClick={handleClick}
-                                />
+                            <div className={styles.icons}>
+                                <div>
+                                    <Button
+                                        title={<DeleteIcon />}
+                                        styles={style.button}
+                                        id={question.id}
+                                        handleClick={() => handleDelete(question.id)}
+                                    />
+                                </div>
+                                <div>
+                                    <Button
+                                        title={<EditIcon />}
+                                        styles={style.button}
+                                        handleClick={() => handleClick1(answer.id)}
+                                    />
+                                </div>
+                                <div>
+                                    {question.updated === true ? (
+                                        <p className={styles.editedRed}><CircleIcon /></p>
+                                    ) :
+                                        <p className={styles.editedGreen}><CircleIcon /></p>
+                                    }
+                                </div>
                             </div>
                         ) : null
                         }
@@ -76,6 +144,24 @@ const ForumCard = ({ question, user, loggedIn, questionGet, answer, answerGet, a
                         <span>Prisijunkite, noredami komentuoti arba trinti</span>
                     </div>
                 }
+            </div>
+            <div className={styles.forms}>
+                <form
+                    onSubmit={handleSubmit}
+                    className={isActive ? `${styles.formDisplay}` : `${styles.form}`}>
+                    <input type="text" name='answer' placeholder="Comment" />
+                    {!isPending &&
+                        <Button
+                            title="Submit"
+                            styles={style.button}
+                        />}
+                    {isPending &&
+                        <Button
+                            disabled
+                            title="Loading..."
+                            styles={style.button}
+                        />}
+                </form>
             </div>
             {typeof answer && (
                 answer.filter((item) => item.question_id === question.id).map((element) =>
@@ -92,24 +178,7 @@ const ForumCard = ({ question, user, loggedIn, questionGet, answer, answerGet, a
                         allUsers={allUsers}
                     />
                 ))}
-             <div className={styles.forms}>
-                    <form
-                        onSubmit={handleSubmit}
-                        className={isActive ? `${styles.formDisplay}` : `${styles.form}`}>
-                        <input type="text" name='answer' placeholder="Comment" />
-                        {!isPending &&
-                            <Button
-                                title="Submit"
-                                styles={style.button}
-                            />}
-                        {isPending &&
-                            <Button
-                                disabled
-                                title="Loading..."
-                                styles={style.button}
-                            />}
-                    </form>
-                </div>
+
         </div>
     );
 }

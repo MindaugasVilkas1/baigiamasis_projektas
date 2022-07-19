@@ -10,9 +10,10 @@
     border-bottom: 2px solid grey;
     width: 90%;
     margin: 0 auto;
-    margin-bottom: 10px;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 10px;
     align-items: center;
     
 }
@@ -30,8 +31,6 @@
     background-color:  rgb(255, 255, 255, 0.8);
     margin-bottom: 10px;
     padding: 5px;
-    align-items: center;
-
 }
 
 .content p {
@@ -71,5 +70,18 @@
     font-weight: bolder;
     font-size: 0.7rem;
     color:white;
+}
+.editedRed {
+    color: red;
+}
+.editedGreen{
+    color: green;
+}
+.icons{
+display: flex;
+margin: 10px;
+justify-content: space-around;
+flex-wrap: wrap;
+align-items: center;
 }
 
