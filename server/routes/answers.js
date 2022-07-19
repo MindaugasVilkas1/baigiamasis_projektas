@@ -41,8 +41,8 @@ router.patch("/:id", async (req, res) => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body : JSON.stringify(req.body)
+      body : JSON.stringify({answer:req.body.answer})
     })
-    res.json();
+    res.json({success:true});
   });
 export default router

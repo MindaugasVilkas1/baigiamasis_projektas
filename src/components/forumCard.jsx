@@ -4,22 +4,14 @@ import Button from "./button";
 import { useState } from "react";
 import ModeCommentIcon from '@mui/icons-material/ModeComment';
 import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
-const ForumCard = ({ question, answer, allUsers, user, loggedIn, answerGet, questionGet }) => {
+import AnswerCard from "./answer";
+const ForumCard = ({ question, user, loggedIn, questionGet, answer, answerGet, allUsers}) => {
     const [isActive, setIsActive] = useState(false)
-    const [active, setActive] = useState(false)
     const [isPending, setIsPending] = useState(null)
-    // funkcija pakeisti formos className
     const handleClick = () => {
         // 👇️ toggle isActive state on click
         setIsActive(current => !current);
     };
-    const handleClick1 = () => {
-        // 👇️ toggle isActive state on click
-        setActive(current => !current);
-    };
-
-
     // delete question
     const handleDelete = (questionId) => {
         fetch(`http://localhost:5000/questions/${questionId}`, {
@@ -32,19 +24,8 @@ const ForumCard = ({ question, answer, allUsers, user, loggedIn, answerGet, ques
                 questionGet()
             })
     }
-
-    // delete answer
-    const answerDelete = (answerId) => {
-
-        fetch(`http://localhost:5000/answers/${answerId}`, {
-            method: "DELETE"
-        })
-            .then(() => {
-                answerGet()
-            })
-    }
-    // post answer funkcija
-    const handleSubmit = (e) => {
+     // post answer funkcija
+     const handleSubmit = (e) => {
         e.preventDefault()
         const answer = {
             user_id: user.id,
@@ -97,52 +78,21 @@ const ForumCard = ({ question, answer, allUsers, user, loggedIn, answerGet, ques
                 }
             </div>
             {typeof answer && (
-                answer.filter((item) => item.question_id === question.id).map((element, i) =>
-                    <div key={i} className={styles.content}>
-                        <p >
-                            <span> Posted by:
-                                {typeof allUsers !== "undefined" ? (
-                                    allUsers.filter((user) => {
-                                        return user.id === element.user_id
-                                    }).map(item => item.user_name
-                                    )
-                                ) : (
-                                    <span>Loading</span>
-                                )}
-                            </span>{" "}
-                            {element.answer}
-
-                        </p>
-                        {loggedIn ? (
-                            <div>
-                                {user.id === element.user_id ? (
-                                    <div>
-                                        <Button
-                                            title={<DeleteIcon />}
-                                            styles={style.button}
-                                            handleClick={(() => answerDelete(user.id === element.user_id ? element.id : null))}
-                                        />
-                                        <Button
-                                            title={<EditIcon />}
-                                            styles={style.button}
-                                            handleClick={handleClick1}
-                                        />
-                                    </div>
-                                ) : null
-
-                                }
-                            </div>
-                        ) :
-                            <div className={styles.span}>
-                                <span>Prisijunkite, noredami trinti arba redaguoti savo komentarus</span>
-                            </div>
-                        }
-                    </div>
-
-                )
-            )}
-            <div >
-                <div className={styles.forms}>
+                answer.filter((item) => item.question_id === question.id).map((element) =>
+                    <AnswerCard
+                        key={element.id}
+                        answer={element}
+                        user={user}
+                        loggedIn={loggedIn}
+                        question={question}
+                        handleClick={handleClick}
+                        isActive={isActive}
+                        isPending={isPending}
+                        answerGet={answerGet}
+                        allUsers={allUsers}
+                    />
+                ))}
+             <div className={styles.forms}>
                     <form
                         onSubmit={handleSubmit}
                         className={isActive ? `${styles.formDisplay}` : `${styles.form}`}>
@@ -160,25 +110,6 @@ const ForumCard = ({ question, answer, allUsers, user, loggedIn, answerGet, ques
                             />}
                     </form>
                 </div>
-                <div className={styles.forms}>
-                    <form
-                        className={active ? `${styles.formDisplay}` : `${styles.form}`}>
-                        <input type="text" name='answer' placeholder="edit" />
-                        {!isPending &&
-                            <Button
-                                title="Edit"
-                                styles={style.button}
-                            />}
-                        {isPending &&
-                            <Button
-                                disabled
-                                title="Loading..."
-                                styles={style.button}
-
-                            />}
-                    </form>
-                </div>
-            </div>
         </div>
     );
 }

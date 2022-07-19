@@ -49,26 +49,38 @@
     {
       "user_id": 2,
       "question_id": 3,
-      "answer": "Na tai gerai",
+      "answer": "geras",
       "id": 14
     },
     {
       "user_id": 2,
       "question_id": 3,
-      "answer": "mmmmm",
+      "answer": "Rokemenduoju",
       "id": 17
     },
     {
       "user_id": 1,
-      "question_id": 3,
-      "answer": "grhfghg",
-      "id": 18
+      "question_id": 1,
+      "answer": "Nebeturiuisejo i kita darba",
+      "id": 19
     },
     {
       "user_id": 1,
       "question_id": 1,
-      "answer": "neturiu",
-      "id": 19
+      "answer": "Neturiu",
+      "id": 20
+    },
+    {
+      "user_id": 1,
+      "question_id": 1,
+      "answer": "Dar visgi uzklausiu",
+      "id": 21
+    },
+    {
+      "user_id": 1,
+      "question_id": 3,
+      "answer": "O visai domina",
+      "id": 22
     }
   ]
 }

@@ -2,7 +2,7 @@ import styles from '../styles/homepage.module.css'
 import { useEffect, useState } from 'react';
 import ForumCard from '../components/forumCard';
 
-const Home = ({ setLoggedIn, answerGet, questionGet, setUser,loggedIn, questions, answer, allUsers, user }) => {
+const Home = ({ setLoggedIn, answerGet, questionGet, setUser,loggedIn, questions, answer, allUsers, user}) => {
 // error
     const [error, setError] = useState(null)
 // fetch verify
