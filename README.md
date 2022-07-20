@@ -1,3 +1,3 @@
-"start": "node server",
-"dev": "nodemon server",
-"db": "json-server --watch data.json --port 8080"
+nunaviguoti i baigiamas_projekta npm run start: paleidziame "react projektas",
+nunaviguoti i baigiamas_projektas/server npm run "dev": "nodemon server",
+nunaviguoti i baigiamas_projektas/server npm run"db": "json-server --watch data.json --port 8080"
